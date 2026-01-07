@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Technologies Lab Sheet 2</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Web Technologies Lab – Sheet 2</h1>
+
+<!-- Exercise 1: Canvas -->
+<h2>Exercise 1: HTML5 Canvas</h2>
+<canvas id="myCanvas" width="500" height="300"></canvas>
+
+<!-- Exercise 2: Audio & Video -->
+<h2>Exercise 2: Audio and Video</h2>
+
+<h3>Audio Player</h3>
+<audio id="audio" controls>
+    <source src="sample-audio.mp3" type="audio/mpeg">
+</audio>
+<p>Current Time: <span id="audioTime">0</span> sec</p>
+
+<h3>Video Player</h3>
+<video id="video" width="400" controls>
+    <source src="sample-video.mp4" type="video/mp4">
+</video>
+<p>Current Time: <span id="videoTime">0</span> sec</p>
+
+<!-- Exercise 3: Drag & Drop Task Manager -->
+<h2>Exercise 3: Task Manager</h2>
+
+<input type="text" id="taskInput" placeholder="Enter task">
+<button onclick="addTask()">Add Task</button>
+
+<div class="board">
+    <div class="column" id="todo" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <h3>To Do</h3>
+    </div>
+
+    <div class="column" id="progress" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <h3>In Progress</h3>
+    </div>
+
+    <div class="column completed" id="done" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <h3>Completed</h3>
+    </div>
+</div>
+
+<p id="message"></p>
+
+<!-- Exercise 4: LocalStorage User Management -->
+<h2>Exercise 4: User Management System</h2>
+
+<form onsubmit="registerUser(event)">
+    <input type="text" id="name" placeholder="Name" required>
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="text" id="mobile" placeholder="Mobile Number" required>
+    <input type="password" id="password" placeholder="Password" required>
+    <button type="submit">Register</button>
+</form>
+
+<button onclick="clearUsers()">Clear All Users</button>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody id="userTable"></tbody>
+</table>
+
+<script src="script.js"></script>
+</body>
+</html>
