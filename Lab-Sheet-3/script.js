@@ -16,30 +16,67 @@ function roleCheck() {
 
     return true;
 }
-
 /* ================= Exercise 2 ================= */
+
 let cart = [];
 
-function addItem() {
-    cart.push({ name: "Item", price: 100, qty: 2 });
+function addToCart() {
+    let data = document.getElementById("productSelect").value.split("|");
+    let qty = parseInt(document.getElementById("qty").value);
+
+    let product = {
+        name: data[0],
+        category: data[1],
+        price: parseInt(data[2]),
+        quantity: qty
+    };
+
+    cart.push(product);
     updateCart();
 }
 
 function updateCart() {
+    let list = document.getElementById("cartList");
     let total = 0;
-    let list = document.getElementById("cart");
     list.innerHTML = "";
 
-    cart.forEach(item => {
-        let cost = item.price * item.qty;
-        if (item.qty >= 2) cost *= 0.9; // bulk discount
+    cart.forEach((item, index) => {
+        let cost = item.price * item.quantity;
+
+        // Bulk discount
+        if (item.quantity >= 3) cost *= 0.9;
+
+        // Category discount
+        if (item.category === "clothing") cost *= 0.95;
+
         total += cost;
-        list.innerHTML += `<li>${item.name} - ₹${cost}</li>`;
+
+        list.innerHTML += `
+            <li>
+                ${item.name} (${item.category}) - ₹${cost}
+                <button onclick="removeItem(${index})">Remove</button>
+            </li>`;
     });
 
-    document.getElementById("total").innerText = total;
+    // Coupon discount
+    let coupon = document.getElementById("coupon").value.trim().toUpperCase();
+    if (coupon.startsWith("SAVE")) {
+        total *= 0.9;
+    }
+
+    // Time-based discount
+    let hour = new Date().getHours();
+    if (hour >= 18 && hour <= 20) {
+        total *= 0.95;
+    }
+
+    document.getElementById("cartTotal").innerText = Math.round(total);
 }
 
+function removeItem(index) {
+    cart.splice(index, 1);
+    updateCart();
+}
 /* ================= Exercise 3 ================= */
 const questions = [
     { q: "Your Name", type: "text", required: true },
