@@ -1,0 +1,35 @@
+body {
+    font-family: Arial;
+    margin: 20px;
+}
+
+input, select, button {
+    display: block;
+    margin: 8px 0;
+    padding: 6px;
+}
+
+.invalid {
+    border: 2px solid red;
+}
+
+#progress {
+    width: 100%;
+    background: #ddd;
+    height: 10px;
+    margin-bottom: 10px;
+}
+
+#bar {
+    height: 10px;
+    width: 25%;
+    background: green;
+}
+
+.step {
+    display: none;
+}
+
+.step.active {
+    display: block;
+}
