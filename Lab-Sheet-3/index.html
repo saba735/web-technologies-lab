@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Technologies Lab Sheet 3</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Web Technologies Lab – Sheet 3</h1>
+
+<!-- ================= Exercise 1 ================= -->
+<h2>Exercise 1: Adaptive Registration System</h2>
+
+<form id="regForm">
+    <input type="text" id="name" placeholder="Name" required>
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="password" id="password" placeholder="Password" required>
+    <input type="password" id="confirm" placeholder="Confirm Password" required>
+    <input type="number" id="age" placeholder="Age" required>
+
+    <select id="role">
+        <option value="">Select Role</option>
+        <option value="student">Student</option>
+        <option value="teacher">Teacher</option>
+        <option value="admin">Admin</option>
+    </select>
+
+    <input type="text" id="skills" placeholder="Skills">
+    <p id="regMsg"></p>
+    <button type="submit">Register</button>
+</form>
+
+<hr>
+
+<!-- ================= Exercise 2 ================= -->
+<h2>Exercise 2: Shopping Cart</h2>
+
+<button onclick="addItem()">Add Item</button>
+<ul id="cart"></ul>
+<p>Total: ₹<span id="total">0</span></p>
+
+<hr>
+
+<!-- ================= Exercise 3 ================= -->
+<h2>Exercise 3: Dynamic Survey</h2>
+
+<form id="surveyForm"></form>
+<button onclick="validateSurvey()">Submit Survey</button>
+<p id="surveyMsg"></p>
+
+<hr>
+
+<!-- ================= Exercise 4 ================= -->
+<h2>Exercise 4: User Activity Monitor</h2>
+
+<button onclick="resetLog()">Reset Log</button>
+<button onclick="exportLog()">Export Log</button>
+<ul id="activityLog"></ul>
+<p id="warning"></p>
+
+<hr>
+
+<!-- ================= Exercise 5 ================= -->
+<h2>Exercise 5: Multi-Step Form</h2>
+
+<div id="progress"><div id="bar"></div></div>
+
+<div class="step active">
+    <input type="text" id="s1" placeholder="Stage 1 Data">
+</div>
+
+<div class="step">
+    <input type="email" id="s2" placeholder="Stage 2 Email">
+</div>
+
+<div class="step">
+    <input type="number" id="s3" placeholder="Stage 3 Age">
+</div>
+
+<div class="step">
+    <input type="text" id="s4" placeholder="Stage 4 Confirm">
+</div>
+
+<button onclick="nextStep()">Next</button>
+
+<script src="script.js"></script>
+</body>
+</html>
