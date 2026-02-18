@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exercise 3 - Student Record System</title>
+</head>
+<body>
+
+<h2>Student Record System (JSON)</h2>
+
+<button onclick="loadStudents()">Load Students</button>
+
+<h3>Add / Update Student</h3>
+
+<input type="number" id="studentId" placeholder="Student ID">
+<input type="text" id="studentName" placeholder="Name">
+<input type="text" id="studentCourse" placeholder="Course">
+<input type="number" id="studentMarks" placeholder="Marks">
+
+<button onclick="addStudent()">Add Student</button>
+<button onclick="updateStudent()">Update Student</button>
+
+<h3>Delete Student</h3>
+<input type="number" id="deleteId" placeholder="Student ID">
+<button onclick="deleteStudent()">Delete</button>
+
+<h3>Student List</h3>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Course</th>
+            <th>Marks</th>
+        </tr>
+    </thead>
+    <tbody id="studentTable"></tbody>
+</table>
+
+<script src="script.js"></script>
+
+</body>
+</html>
