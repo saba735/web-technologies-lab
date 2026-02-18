@@ -1,42 +1,32 @@
-let students = [];
+const apiKey = "YOUR_API_KEY";
+let lastResult = null;
 
-function addStudent() {
+document.getElementById("btn").addEventListener("click", function(){
 
-    const id = document.getElementById("id").value;
-    const name = document.getElementById("name").value;
-    const dept = document.getElementById("dept").value;
-    const marks = document.getElementById("marks").value;
+    const city = document.getElementById("city").value;
+    const output = document.getElementById("output");
 
-    if(!id || !name || !dept || !marks){
-        alert("Fill all fields");
-        return;
-    }
+    output.innerHTML = "Loading...";
 
-    students.push({id, name, dept, marks});
-    displayStudents();
-}
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`)
+    .then(res => {
+        if(!res.ok){
+            throw new Error("City not found");
+        }
+        return res.json();
+    })
+    .then(data => {
 
-function displayStudents(){
+        lastResult = data;
 
-    const table = document.getElementById("table");
-    table.innerHTML = "";
-
-    students.forEach((s, index) => {
-        table.innerHTML += `
-            <tr>
-                <td>${s.id}</td>
-                <td>${s.name}</td>
-                <td>${s.dept}</td>
-                <td>${s.marks}</td>
-                <td>
-                    <button onclick="deleteStudent(${index})">Delete</button>
-                </td>
-            </tr>
+        output.innerHTML = `
+            Temperature: ${data.main.temp}°C <br>
+            Humidity: ${data.main.humidity}% <br>
+            Condition: ${data.weather[0].description}
         `;
+    })
+    .catch(err => {
+        output.innerHTML = err.message;
     });
-}
 
-function deleteStudent(index){
-    students.splice(index,1);
-    displayStudents();
-}
+});
