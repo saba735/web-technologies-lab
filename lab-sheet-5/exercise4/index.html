@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exercise 4 - Product Inventory System</title>
+    <style>
+        .low-stock {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Product Inventory System (JSON)</h2>
+
+<button onclick="loadInventory()">Load Inventory</button>
+
+<h3>Add / Edit Product</h3>
+
+<input type="number" id="productId" placeholder="Product ID">
+<input type="text" id="productName" placeholder="Product Name">
+<input type="text" id="productCategory" placeholder="Category">
+<input type="number" id="productPrice" placeholder="Price">
+<input type="number" id="productStock" placeholder="Stock Quantity">
+
+<button onclick="addProduct()">Add Product</button>
+<button onclick="updateProduct()">Update Product</button>
+
+<h3>Delete Product</h3>
+<input type="number" id="deleteProductId" placeholder="Product ID">
+<button onclick="deleteProduct()">Delete</button>
+
+<h3>Search by Category</h3>
+<input type="text" id="searchCategory" placeholder="Enter Category">
+<button onclick="searchByCategory()">Search</button>
+
+<h3>Inventory List</h3>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Stock</th>
+        </tr>
+    </thead>
+    <tbody id="inventoryTable"></tbody>
+</table>
+
+<h3 id="totalValue">Total Inventory Value: ₹0</h3>
+
+<script src="script.js"></script>
+
+</body>
+</html>
