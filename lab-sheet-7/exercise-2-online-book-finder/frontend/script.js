@@ -1,9 +1,15 @@
 const url = "http://localhost:3000";
+<<<<<<< HEAD
 let page = 1;
 
 function displayBooks(data) {
 
 
+=======
+
+function displayBooks(data) {
+
+>>>>>>> 97136f5cb04558a11f07afea26993f5ac9ab29d2
 let output = "";
 
 data.forEach(book => {
@@ -73,6 +79,7 @@ fetch(`${url}/books/top`)
 // Pagination
 function loadPage(){
 
+<<<<<<< HEAD
 fetch(`${url}/books?page=${page}`)
 .then(res => res.json())
 .then(data => {
@@ -82,4 +89,9 @@ displayBooks(data);
 page++;
 
 });
+=======
+fetch(`${url}/books?page=1`)
+.then(res => res.json())
+.then(data => displayBooks(data));
+>>>>>>> 97136f5cb04558a11f07afea26993f5ac9ab29d2
 }
