@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<books>
+    <book>
+        <id>101</id>
+        <title>Java Basics</title>
+        <author>ABC</author>
+        <status>Available</status>
+    </book>
+    <book>
+        <id>102</id>
+        <title>Web Technology</title>
+        <author>XYZ</author>
+        <status>Issued</status>
+    </book>
+</books>

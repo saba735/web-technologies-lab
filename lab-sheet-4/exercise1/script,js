@@ -1,0 +1,37 @@
+const usernameInput = document.getElementById("username");
+const message = document.getElementById("message");
+const form = document.getElementById("form");
+
+let available = false;
+
+usernameInput.addEventListener("input", function() {
+
+    message.textContent = "Checking...";
+    message.style.color = "blue";
+
+    fetch("users.json")
+    .then(res => res.json())
+    .then(data => {
+
+        if (data.users.includes(usernameInput.value.trim())) {
+            message.textContent = "Username already taken";
+            message.style.color = "red";
+            available = false;
+        } else {
+            message.textContent = "Username available";
+            message.style.color = "green";
+            available = true;
+        }
+    })
+    .catch(() => {
+        message.textContent = "Error loading data";
+        message.style.color = "red";
+    });
+});
+
+form.addEventListener("submit", function(e){
+    if(!available){
+        e.preventDefault();
+        alert("Username not available!");
+    }
+});
